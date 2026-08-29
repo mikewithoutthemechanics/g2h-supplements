@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOSE 2 DOOR — SA's Conversion-Tested Supplement Store</title>
+<meta name="description" content="Five conversion-tested supplements — Vitamin D3, Omega-3, Multivitamins, Vitamin C + Zinc and Collagen Peptides — priced R180–R500, backed by real volume data, delivered to your suburb in 48 hours.">
+<meta name="theme-color" content="#0d0a08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET / TOKENS ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0d0a08; --ink2:#151009; --panel:#1d1610; --panel2:#241b13;
+  --cream:#f1e9dd; --cream2:#e6dbc8; --white:#faf6ef;
+  --amber:#e79a3c; --amber2:#c8862f; --amber-soft:#f3c98b;
+  --red:#e8492e; --green:#3fae6a; --rose:#e0879b;
+  --mut:#a4937f; --mut-d:#6f6153;
+  --line:rgba(241,233,221,.14); --line-d:rgba(13,10,8,.14);
+  --nav-h:74px;
+  --ff-d:'Anton',Impact,sans-serif;
+  --ff-b:'Archivo',Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.65,.05,.36,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-b);background:var(--ink);color:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input{font-family:inherit}
+::selection{background:var(--amber);color:var(--ink)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+section[id]{scroll-margin-top:90px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,52px)}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:34px;height:2px;background:var(--amber);flex:none}
+h1,h2,h3,.dfont{font-family:var(--ff-d);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.96}
+.h2{font-size:clamp(2.5rem,6.2vw,5rem)}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.split .wi{display:inline-block;transform:translateY(112%);transition:transform .75s var(--ease);transition-delay:calc(var(--i,0)*.055s);will-change:transform}
+.split.in .wi{transform:none}
+.stroke{-webkit-text-stroke:1.5px var(--amber);color:transparent}
+.on-cream .stroke{-webkit-text-stroke:1.5px var(--ink)}
+em.acc{font-style:normal;color:var(--amber)}
+.on-cream em.acc{color:var(--amber2)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s);will-change:transform,opacity}
+.reveal.in{opacity:1;transform:none}
+[data-hero]{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease);transition-delay:var(--d,0s)}
+body.is-loaded [data-hero]{opacity:1;transform:none}
+body.is-loaded .hero .split .wi{transform:none}
+.lede{color:var(--mut);font-size:clamp(1rem,1.4vw,1.15rem);max-width:620px}
+.on-cream .lede{color:var(--mut-d)}
+/* ============ GRAIN / PROGRESS / CURSOR ============ */
+.grain{position:fixed;inset:-60%;width:220%;height:220%;pointer-events:none;z-index:400;opacity:.055;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");animation:grain 7s steps(8) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-2%)}100%{transform:translate(3%,3%)}}
+#progressBar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--amber);transform-origin:0 50%;transform:scaleX(0);z-index:320}
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:500;border-radius:50%}
+.cursor-dot{width:7px;height:7px;background:var(--amber);transform:translate(-50%,-50%)}
+.cursor-ring{width:38px;height:38px;border:1.5px solid rgba(231,154,60,.65);transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,background .25s}
+.cursor-ring.is-active{width:60px;height:60px;border-color:var(--amber);background:rgba(231,154,60,.08)}
+@media(hover:none){.cursor-dot,.cursor-ring{display:none}}
+/* ============ PRELOADER ============ */
+#preloader{position:fixed;inset:0;background:var(--ink);z-index:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:transform .8s var(--ease),opacity .6s}
+#preloader.done{transform:translateY(-100%);opacity:.6;pointer-events:none}
+.pre-words{display:flex;gap:.18em;font-family:var(--ff-d);font-size:clamp(2.4rem,8vw,5.5rem);text-transform:uppercase;overflow:hidden}
+.pre-words span{display:inline-block;animation:preup .7s var(--ease) both}
+.pre-words span:nth-child(2){color:transparent;-webkit-text-stroke:1.5px var(--amber);animation-delay:.1s}
+.pre-words span:nth-child(3){animation-delay:.2s}
+@keyframes preup{from{transform:translateY(110%)}to{transform:translateY(0)}}
+.pre-nums{font-family:var(--ff-d);font-size:20px;color:var(--amber);letter-spacing:.2em}
+.pre-bar{width:min(300px,60vw);height:2px;background:var(--line);overflow:hidden}
+.pre-bar i{display:block;height:100%;width:0%;background:var(--amber)}
+/* ============ ANNOUNCE / NAV ============ */
+.announce{background:var(--amber);color:var(--ink);overflow:hidden;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;padding:9px 0}
+.announce-track{display:flex;gap:3rem;width:max-content;animation:marq 26s linear infinite}
+.announce-track span{white-space:nowrap;display:flex;align-items:center;gap:3rem}
+.announce-track span::after{content:"✦";font-size:10px}
+@keyframes marq{to{transform:translateX(-50%)}}
+header.nav{position:sticky;top:0;z-index:300;transition:background .35s,border-color .35s;border-bottom:1px solid transparent;background:linear-gradient(rgba(13,10,8,0),rgba(13,10,8,0))}
+header.nav.scrolled{background:rgba(13,10,8,.86);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:20px}
+.logo{font-family:var(--ff-d);font-size:clamp(1.3rem,2.4vw,1.7rem);text-transform:uppercase;display:flex;align-items:baseline;gap:2px;line-height:1}
+.logo .two{color:var(--ink);background:var(--amber);padding:1px 6px 0;margin:0 3px;border-radius:4px;transform:rotate(-4deg);display:inline-block;font-size:1.05em;transition:transform .3s var(--ease)}
+.logo:hover .two{transform:rotate(6deg)}
+.nav-links{display:flex;gap:clamp(16px,2.6vw,36px);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.nav-links a{position:relative;padding:6px 0;color:var(--cream)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .3s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;transition:.25s;position:relative}
+.icon-btn:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+.cart-badge{position:absolute;top:-5px;right:-5px;min-width:19px;height:19px;background:var(--red);color:#fff;font-size:10px;font-weight:800;border-radius:99px;display:grid;place-items:center;padding:0 5px;opacity:0;transform:scale(0);transition:.25s cubic-bezier(.34,1.56,.64,1)}
+.cart-badge.show{opacity:1;transform:scale(1)}
+.cart-badge.pop{animation:pop .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{50%{transform:scale(1.45)}}
+.nav-cta{font-weight:800;letter-spacing:.12em;font-size:12px;text-transform:uppercase;background:var(--amber);color:var(--ink);padding:12px 20px;border-radius:99px;transition:.25s;white-space:nowrap}
+.nav-cta:hover{background:var(--cream);transform:translateY(-2px)}
+#navToggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;place-items:center}
+#navToggle i{display:block;width:18px;height:2px;background:var(--cream);position:relative;transition:.3s}
+#navToggle i::before,#navToggle i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--cream);transition:.3s}
+#navToggle i::before{top:-6px}#navToggle i::after{top:6px}
+#navToggle.open i{background:transparent}
+#navToggle.open i::before{top:0;transform:rotate(45deg)}
+#navToggle.open i::after{top:0;transform:rotate(-45deg)}
+@media(max-width:960px){.nav-links,.nav-cta{display:none}#navToggle{display:grid}}
+/* mobile menu */
+#mobileMenu{position:fixed;inset:0;background:var(--ink);z-index:340;display:flex;flex-direction:column;padding:24px;transform:translateX(100%);visibility:hidden;transition:transform .5s var(--ease),visibility 0s .5s}
+#mobileMenu.open{transform:translateX(0);visibility:visible;transition:transform .5s var(--ease)}
+.mm-top{display:flex;justify-content:space-between;align-items:center}
+.mm-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.mm-link{font-family:var(--ff-d);font-size:clamp(2.4rem,9vw,4.2rem);text-transform:uppercase;line-height:1.06;display:flex;align-items:baseline;gap:14px;color:var(--cream);opacity:0;transform:translateY(24px);transition:.5s var(--ease)}
+#mobileMenu.open .mm-link{opacity:1;transform:none}
+.mm-link small{font-size:12px;font-family:var(--ff-b);font-weight:700;color:var(--amber);letter-spacing:.2em}
+.mm-link:hover{color:var(--amber)}
+.mm-foot{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:6px;color:var(--mut);font-size:14px}
+.mm-foot a{color:var(--amber)}
+/* ============ HERO ============ */
+.hero{position:relative;min-height:92svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:60px 0 70px}
+.hero-media{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-glow{position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:120vw;height:90vh;background:radial-gradient(closest-side,rgba(231,154,60,.22),transparent 70%);filter:blur(10px)}
+.ring{position:absolute;border:1px solid var(--line);border-radius:50%;left:50%;top:46%;transform:translate(-50%,-50%)}
+.r1{width:min(560px,80vw);height:min(560px,80vw);opacity:.55}
+.r2{width:min(820px,110vw);height:min(820px,110vw);opacity:.3}
+.cap{position:absolute;border-radius:999px;background:linear-gradient(90deg,var(--amber) 0 50%,var(--cream) 50% 100%);box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.14);opacity:.9;animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:rotate(var(--rot,0deg)) translateY(0)}50%{transform:rotate(var(--rot,0deg)) translateY(-16px)}}
+.c1{width:120px;height:44px;top:17%;right:10%;--rot:-24deg}
+.c2{width:80px;height:30px;top:62%;left:5%;--rot:18deg;animation-duration:9s}
+.c3{width:150px;height:52px;bottom:12%;right:24%;--rot:98deg;animation-duration:8s;opacity:.75}
+.c4{width:64px;height:24px;bottom:7%;left:36%;--rot:-42deg;animation-duration:6s;opacity:.6}
+.tabp{position:absolute;width:58px;height:58px;border-radius:50%;top:29%;left:15%;background:radial-gradient(circle at 35% 30%,var(--amber-soft),var(--amber2) 70%);box-shadow:0 16px 34px rgba(0,0,0,.5),inset 0 -6px 14px rgba(0,0,0,.22);animation:float 10s ease-in-out infinite}
+.hero-inner{position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,9.4vw,8rem);margin:20px 0 24px}
+.hero h1 .hl{display:block}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:12px;padding:16px 28px;border-radius:99px;transition:.3s var(--ease)}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-amber:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+.rot-badge{position:absolute;right:4%;bottom:6%;width:132px;height:132px;z-index:2;animation:spin 16s linear infinite}
+.rot-badge text{font-family:var(--ff-b);font-weight:800;font-size:10.5px;letter-spacing:.22em;fill:var(--amber)}
+.rot-badge .plus{fill:var(--cream)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1100px){.rot-badge{display:none}}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:0;margin-top:clamp(36px,6vh,64px);border-top:1px solid var(--line);padding-top:22px;width:fit-content}
+.hstat{padding:0 clamp(16px,2.6vw,40px);border-left:1px solid var(--line)}
+.hstat:first-child{border-left:none;padding-left:0}
+.hnum{font-family:var(--ff-d);font-size:clamp(1.7rem,3vw,2.6rem);color:var(--amber);display:block;line-height:1}
+.hlab{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);display:block;margin-top:8px}
+@media(max-width:760px){.hero-stats{grid-template-columns:1fr 1fr;width:100%}.hstat{padding:12px 0 12px 16px}.hstat:nth-child(3){border-left:none;padding-left:0}}
+/* ============ BIG MARQUEE ============ */
+.big-marq{overflow:hidden;padding:clamp(18px,3vw,34px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink2)}
+.bm-track{display:flex;gap:2.4rem;width:max-content;animation:marq 34s linear infinite;align-items:center}
+.bm-track span{font-family:var(--ff-d);font-size:clamp(2.6rem,6vw,5.2rem);text-transform:uppercase;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(231,154,60,.5);line-height:1}
+.bm-track .sep{color:var(--amber);-webkit-text-stroke:0;font-size:clamp(1.2rem,2.4vw,2rem)}
+/* ============ SECTION SHELL ============ */
+.sec{padding:clamp(70px,10vw,130px) 0;position:relative}
+.sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(34px,5vw,60px)}
+.on-cream{background:var(--cream);color:var(--ink)}
+.on-cream .kicker{color:var(--amber2)}
+.on-cream .kicker::before{background:var(--amber2)}
+/* ============ LINE-UP (PRODUCT PRICE CARDS) ============ */
+.line-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.pcard{grid-column:span 2;background:var(--white);border:1px solid var(--line-d);border-radius:20px;padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:14px;position:relative;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(13,10,8,.16)}
+.pcard.wide{grid-column:span 3}
+.pcard.feat{background:var(--ink);color:var(--cream);border-color:rgba(231,154,60,.35)}
+.pcard.feat:hover{box-shadow:0 30px 60px rgba(231,154,60,.14)}
+.pc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ptag{font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--amber2);border:1px solid rgba(200,134,47,.5);padding:6px 10px;border-radius:99px}
+.pbadge{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:#fff;padding:6px 10px;border-radius:6px;transform:rotate(2deg)}
+.pc-name{font-size:clamp(1.5rem,2vw,1.9rem);line-height:1}
+.pc-spec{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mut-d)}
+.feat .pc-spec{color:var(--mut)}
+.pc-price{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:6px 0 2px}
+.pricetag{font-family:var(--ff-d);font-size:clamp(1.6rem,2.1vw,2.05rem);line-height:1;background:var(--amber);color:var(--ink);padding:.22em .45em .1em;border-radius:12px;display:inline-block;transform:rotate(-2deg);box-shadow:4px 5px 0 rgba(13,10,8,.9)}
+.perday{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-d)}
+.feat .perday{color:var(--amber-soft)}
+.meter-head{display:flex;justify-content:space-between;font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mut-d);margin-bottom:7px}
+.feat .meter-head{color:var(--mut)}
+.meter{height:8px;border-radius:99px;background:rgba(13,10,8,.1);overflow:hidden}
+.feat .meter{background:rgba(241,233,221,.14)}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber2),var(--amber));border-radius:99px;transition:width 1.3s var(--ease) .15s}
+.pc-stat{font-size:13.5px;color:var(--mut-d)}
+.pc-stat strong{color:var(--ink);font-weight:900}
+.feat .pc-stat{color:var(--mut)}
+.feat .pc-stat strong{color:var(--amber)}
+.pc-why{font-size:14px;line-height:1.6;color:#4c4234}
+.feat .pc-why{color:var(--cream2)}
+.pc-actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.add{width:100%;background:var(--ink);color:var(--cream);border-radius:12px;padding:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:12px;transition:.25s}
+.add:hover{background:var(--amber);color:var(--ink);transform:translateY(-2px)}
+.feat .add{background:var(--amber);color:var(--ink)}
+.feat .add:hover{background:var(--cream)}
+.linkwhy{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber2);border-bottom:2px solid rgba(200,134,47,.4);padding-bottom:3px;transition:.25s}
+.linkwhy:hover{border-color:var(--amber2);letter-spacing:.2em}
+.feat .linkwhy{color:var(--amber);border-color:rgba(231,154,60,.4)}
+.shelf-note{margin-top:22px;font-size:12.5px;color:var(--mut-d);font-weight:600;letter-spacing:.04em}
+@media(max-width:1080px){.line-grid{grid-template-columns:repeat(2,1fr)}.pcard,.pcard.wide{grid-column:span 1}.pcard.feat{grid-column:span 2}.pricetag{box-shadow:3px 4px 0 rgba(13,10,8,.85)}}
+@media(max-width:640px){.line-grid{grid-template-columns:1fr}.pcard,.pcard.wide,.pcard.feat{grid-column:span 1}}
+/* ============ WHY IT SELLS (TABS) ============ */
+.why-grid{display:grid;grid-template-columns:minmax(250px,360px) 1fr;gap:clamp(20px,3.6vw,52px);align-items:start}
+.tab-list{display:flex;flex-direction:column;gap:10px}
+.tab-btn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:15px 18px;border:1px solid var(--line);border-radius:14px;transition:.3s var(--ease);color:var(--cream)}
+.tab-btn .tno{font-family:var(--ff-d);font-size:14px;color:var(--mut-d);min-width:26px}
+.tab-btn .tmain{display:flex;flex-direction:column;gap:2px}
+.tab-btn .tname{font-family:var(--ff-d);font-size:1.05rem;text-transform:uppercase;line-height:1.05}
+.tab-btn .tmeta{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.tab-btn .tband{margin-left:auto;font-size:11px;font-weight:800;color:var(--mut);white-space:nowrap}
+.tab-btn:hover{border-color:rgba(231,154,60,.5);transform:translateX(4px)}
+.tab-btn.on{background:var(--panel);border-color:var(--amber)}
+.tab-btn.on .tno,.tab-btn.on .tband{color:var(--amber)}
+.why-panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,3.4vw,44px);opacity:0;transform:translateY(16px);transition:.45s var(--ease)}
+.why-panel.show{opacity:1;transform:none}
+.wp-tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);background:var(--amber);padding:7px 12px;border-radius:6px;transform:rotate(-1.5deg)}
+.wp-name{font-size:clamp(1.7rem,3vw,2.5rem);margin:16px 0 14px}
+.wp-why{color:var(--cream2);font-size:15.5px;line-height:1.7;max-width:720px}
+.wp-signals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.sig{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(13,10,8,.35)}
+.sig small{display:block;font-size:9.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.sig b{font-size:13.5px;line-height:1.4;display:block;font-weight:700;color:var(--cream)}
+.wp-lever{margin-top:22px;border-left:3px solid var(--amber);padding:12px 18px;background:rgba(231,154,60,.07);border-radius:0 12px 12px 0;font-size:14px;color:var(--amber-soft)}
+.wp-lever b{text-transform:uppercase;letter-spacing:.12em;font-size:11px;display:block;margin-bottom:4px;color:var(--amber)}
+@media(max-width:940px){.why-grid{grid-template-columns:1fr}.tab-list{flex-direction:row;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}.tab-btn{min-width:230px;flex:none}.wp-signals{grid-template-columns:repeat(2,1fr)}}
+/* ============ DEMAND DATA ============ */
+.data-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(20px,3.4vw,48px);align-items:stretch}
+.dstats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{border:1px solid var(--line);border-radius:18px;padding:clamp(20px,2.4vw,28px);background:linear-gradient(160deg,var(--panel),rgba(29,22,16,.2));transition:.3s var(--ease)}
+.stat:hover{border-color:rgba(231,154,60,.5);transform:translateY(-4px)}
+.stat .num{font-family:var(--ff-d);font-size:clamp(2.2rem,4vw,3.4rem);color:var(--amber);line-height:1;display:flex;align-items:baseline;gap:2px}
+.stat .num small{font-size:.5em;color:var(--cream)}
+.stat p{margin-top:10px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);line-height:1.5}
+.dpanel{border:1px solid var(--line);border-radius:22px;padding:clamp(22px,2.8vw,36px);background:var(--ink2);display:flex;flex-direction:column;gap:26px}
+.dpanel h3{font-size:1.3rem;display:flex;align-items:center;gap:10px}
+.dpanel h3::before{content:"";width:10px;height:10px;background:var(--amber);border-radius:2px;transform:rotate(45deg)}
+.vrow .vhead{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:700;margin-bottom:8px}
+.vrow .vhead b{font-family:var(--ff-d);font-size:1.15rem;color:var(--amber);letter-spacing:.03em}
+.vrow .vhead b small{font-family:var(--ff-b);font-size:10px;color:var(--mut);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-left:4px}
+.vbar{height:14px;border-radius:99px;background:rgba(241,233,221,.08);overflow:hidden}
+.vbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber2),var(--amber));border-radius:99px;transition:width 1.4s var(--ease) .2s}
+.vbar i.soft{background:linear-gradient(90deg,#8a6b35,var(--amber-soft))}
+.sparkbox{border-top:1px solid var(--line);padding-top:22px}
+.sparkbox h4{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.spark{width:100%;height:90px;display:block}
+.spark .line{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s ease .2s}
+.spark.in .line{stroke-dashoffset:0}
+.spark .area{opacity:0;transition:opacity .8s ease 1.3s}
+.spark.in .area{opacity:1}
+.spark .dot{opacity:0;transition:opacity .4s ease 1.5s}
+.spark.in .dot{opacity:1}
+.months{display:flex;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--mut-d);margin-top:6px}
+.spark-note{margin-top:12px;font-size:13px;color:var(--mut)}
+.aud{border-top:1px solid var(--line);padding-top:22px}
+.gbar{height:22px;border-radius:99px;border:1px solid var(--line);overflow:hidden;background:rgba(241,233,221,.05)}
+.gbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber2),var(--amber));transition:width 1.3s var(--ease) .2s}
+.glab{display:flex;justify-content:space-between;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:8px}
+.agechip{display:flex;align-items:center;gap:14px;margin-top:18px;font-family:var(--ff-d);font-size:1.1rem;color:var(--cream)}
+.agechip .track{flex:1;height:2px;background:var(--line);position:relative}
+.agechip .track::before{content:"";position:absolute;inset:0 -0px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease) .3s}
+.agechip.in .track::before{transform:scaleX(1)}
+@media(max-width:1000px){.data-grid{grid-template-columns:1fr}}
+/* ============ AUDIENCE AMBER BAND ============ */
+.aud-band{background:var(--amber);color:var(--ink);padding:clamp(60px,8vw,100px) 0}
+.aud-band .kicker{color:var(--ink)}
+.aud-band .kicker::before{background:var(--ink)}
+.aud-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,80px);align-items:center}
+.aud-band h2{font-size:clamp(2.4rem,5.6vw,4.6rem);margin-top:16px}
+.aud-band h2 .out{color:transparent;-webkit-text-stroke:1.6px var(--ink)}
+.aud-facts{display:flex;flex-direction:column;gap:0}
+.afact{display:flex;align-items:baseline;gap:18px;padding:18px 0;border-bottom:1px solid rgba(13,10,8,.25)}
+.afact:last-child{border-bottom:none}
+.afact b{font-family:var(--ff-d);font-size:clamp(1.7rem,2.8vw,2.4rem);min-width:120px;line-height:1}
+.afact span{font-size:14px;font-weight:700;letter-spacing:.04em}
+.aud-split{margin-top:26px}
+.aud-split .gbar{border-color:rgba(13,10,8,.5);background:transparent}
+.aud-split .gbar i{background:var(--ink)}
+.aud-split .glab{color:rgba(13,10,8,.75)}
+@media(max-width:900px){.aud-grid{grid-template-columns:1fr}}
+/* ============ SUB-NICHES ============ */
+.nich-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.nich{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:14px;min-height:300px;transition:.35s var(--ease);position:relative;overflow:hidden}
+.nich:hover{transform:translateY(-6px) rotate(-.6deg);border-color:rgba(231,154,60,.55);box-shadow:0 26px 54px rgba(0,0,0,.4)}
+.nich .no{position:absolute;top:8px;right:14px;font-family:var(--ff-d);font-size:3.4rem;color:transparent;-webkit-text-stroke:1px rgba(231,154,60,.3);line-height:1}
+.nich .ic{width:46px;height:46px;border-radius:12px;background:rgba(231,154,60,.12);display:grid;place-items:center;color:var(--amber)}
+.nich h3{font-size:1.35rem;line-height:1.05}
+.nich h3 small{display:block;font-family:var(--ff-b);font-size:10.5px;font-weight:800;letter-spacing:.22em;color:var(--amber);margin-bottom:7px;text-transform:uppercase}
+.nich p{font-size:13.5px;color:var(--mut);line-height:1.65}
+.nich .chip{margin-top:auto;align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(231,154,60,.4);color:var(--amber-soft);padding:7px 11px;border-radius:99px}
+.fmt-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.fmt-chips i{font-style:normal;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);color:var(--cream2);padding:6px 9px;border-radius:99px}
+@media(max-width:1100px){.nich-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.nich-grid{grid-template-columns:1fr}}
+/* ============ HOW IT WORKS / TESTIMONIALS ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,40px)}
+.step{position:relative;padding-top:8px}
+.step .sno{font-family:var(--ff-d);font-size:clamp(3rem,5vw,4.6rem);color:transparent;-webkit-text-stroke:1.5px var(--amber2);line-height:1}
+.step h3{font-size:1.4rem;margin:14px 0 10px}
+.step p{font-size:14px;color:var(--mut-d);line-height:1.65}
+.on-cream .step p{color:#5b5142}
+.step::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line-d)}
+.sub-banner{margin-top:clamp(44px,6vw,70px);background:var(--ink);color:var(--cream);border-radius:24px;padding:clamp(28px,4vw,52px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.sub-banner::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;background:radial-gradient(closest-side,rgba(231,154,60,.35),transparent);pointer-events:none}
+.sub-banner h3{font-size:clamp(1.9rem,3.6vw,3rem);line-height:1}
+.sub-banner h3 em{font-style:normal;color:var(--amber)}
+.sub-banner p{color:var(--mut);max-width:420px;font-size:14px;margin-top:10px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(44px,6vw,70px)}
+.tcard{background:var(--white);border:1px solid var(--line-d);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:.3s var(--ease)}
+.tcard:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(13,10,8,.12)}
+.stars{color:var(--amber2);letter-spacing:3px;font-size:14px}
+.tcard q{font-size:15px;line-height:1.65;color:#3d352a;font-weight:500;quotes:"“" "”"}
+.tcard .who{font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-d)}
+@media(max-width:900px){.steps,.tgrid{grid-template-columns:1fr}}
+/* ============ FAQ ============ */
+.faq-list{max-width:860px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;padding:24px 4px;font-family:var(--ff-d);font-size:clamp(1.15rem,2vw,1.5rem);text-transform:uppercase;color:var(--cream);transition:color .25s}
+.faq-q:hover{color:var(--amber)}
+.faq-q .fi{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-family:var(--ff-b);font-weight:700;transition:.3s var(--ease);color:var(--amber)}
+.faq-item.open .fi{transform:rotate(45deg);background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{padding:0 4px 26px;color:var(--mut);font-size:15px;line-height:1.7;max-width:700px}
+/* ============ CTA / NEWSLETTER ============ */
+.cta{position:relative;text-align:center;overflow:hidden}
+.cta-glow{position:absolute;left:50%;bottom:-40%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(closest-side,rgba(231,154,60,.25),transparent 70%);pointer-events:none}
+.cta h2{font-size:clamp(2.8rem,8vw,6.6rem);margin:18px 0 20px;position:relative}
+.cta h2 .out{color:transparent;-webkit-text-stroke:1.6px var(--amber)}
+.nl-form{display:flex;gap:10px;max-width:520px;margin:30px auto 0;position:relative}
+.nl-form input{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:16px 22px;color:var(--cream);font-size:14px;outline:none;transition:border-color .25s}
+.nl-form input:focus{border-color:var(--amber)}
+.nl-form input::placeholder{color:var(--mut-d)}
+.cta small{display:block;margin-top:16px;color:var(--mut-d);font-size:12px;letter-spacing:.06em;position:relative}
+.nl-done{margin-top:30px;display:none;flex-direction:column;align-items:center;gap:10px;position:relative}
+.nl-done .ok{width:56px;height:56px;border-radius:50%;background:var(--amber);color:var(--ink);display:grid;place-items:center;font-size:24px;font-weight:900}
+/* ============ FOOTER ============ */
+footer{background:var(--ink2);border-top:1px solid var(--line);padding:clamp(50px,7vw,80px) 0 34px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(24px,4vw,60px)}
+.f-brand p{color:var(--mut);font-size:13.5px;max-width:300px;margin-top:14px;line-height:1.7}
+.f-col h4{font-size:11px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+.f-col a{display:block;font-size:14px;color:var(--mut);padding:5px 0;transition:.2s}
+.f-col a:hover{color:var(--cream);transform:translateX(4px)}
+.pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pay i{font-style:normal;font-size:10px;font-weight:800;letter-spacing:.12em;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--mut)}
+.f-bottom{margin-top:clamp(36px,5vw,60px);border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start}
+.f-bottom .disc{font-size:11.5px;color:var(--mut-d);max-width:640px;line-height:1.7}
+.f-bottom .copy{font-size:12px;color:var(--mut);white-space:nowrap}
+@media(max-width:860px){.f-grid{grid-template-columns:1fr 1fr}}
+/* ============ CART DRAWER ============ */
+#backdrop{position:fixed;inset:0;background:rgba(13,10,8,.6);backdrop-filter:blur(3px);z-index:350;opacity:0;visibility:hidden;transition:.35s}
+#backdrop.show{opacity:1;visibility:visible}
+#cartDrawer{position:fixed;top:0;right:0;height:100dvh;width:min(430px,94vw);background:var(--ink2);z-index:360;border-left:1px solid var(--line);transform:translateX(105%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+#cartDrawer.open{transform:translateX(0)}
+.cd-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--line)}
+.cd-head h3{font-size:1.4rem}
+.cd-head h3 span{color:var(--amber)}
+.cd-close{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:.25s}
+.cd-close:hover{border-color:var(--red);color:var(--red);transform:rotate(90deg)}
+.cd-ship{padding:16px 24px;border-bottom:1px solid var(--line)}
+.cd-ship-label{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.cd-ship-label b{color:var(--amber)}
+.cd-ship-bar{height:6px;border-radius:99px;background:rgba(241,233,221,.08);overflow:hidden}
+.cd-ship-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber2),var(--amber));transition:width .6s var(--ease)}
+.cd-items{flex:1;overflow-y:auto;padding:10px 24px}
+.cd-empty{text-align:center;color:var(--mut);padding:60px 30px;font-size:14px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.cd-empty .big{font-family:var(--ff-d);font-size:1.6rem;color:var(--cream);text-transform:uppercase}
+.cd-item{display:flex;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.cd-thumb{flex:none;width:46px;height:46px;border-radius:12px;border:1px solid;display:grid;place-items:center}
+.cd-thumb i{display:block;width:26px;height:11px;border-radius:99px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.cd-info{flex:1;min-width:0}
+.cd-info b{font-size:13px;display:block;line-height:1.3}
+.cd-info small{font-size:10.5px;color:var(--mut);display:block;margin:2px 0 8px}
+.cd-qty{display:flex;align-items:center;gap:8px}
+.cd-qty button{width:24px;height:24px;border:1px solid var(--line);border-radius:6px;font-weight:800;line-height:1;transition:.2s}
+.cd-qty button:hover{border-color:var(--amber);color:var(--amber)}
+.cd-qty span{font-weight:800;font-size:13px;min-width:16px;text-align:center}
+.cd-rm{margin-left:6px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-d);transition:.2s}
+.cd-rm:hover{color:var(--red)}
+.cd-price{font-family:var(--ff-d);font-size:1.05rem;color:var(--amber);white-space:nowrap}
+.cd-foot{border-top:1px solid var(--line);padding:18px 24px 22px}
+.cd-sub{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;color:var(--cream2);cursor:pointer;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.cd-sub input{accent-color:var(--amber);width:16px;height:16px}
+.cd-sub b{color:var(--amber)}
+.cd-row{display:flex;justify-content:space-between;font-size:13.5px;color:var(--mut);padding:4px 0}
+.cd-row.save{color:var(--green);display:none}
+.cd-row.save.on{display:flex}
+.cd-row.total{font-family:var(--ff-d);font-size:1.3rem;color:var(--cream);padding-top:10px}
+.btn-checkout{width:100%;margin-top:12px;background:var(--amber);color:var(--ink);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px;padding:16px;border-radius:99px;transition:.25s}
+.btn-checkout:hover{background:var(--cream);transform:translateY(-2px)}
+.cd-note{text-align:center;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d);margin-top:12px}
+/* ============ TOAST ============ */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);background:var(--ink);border:1px solid var(--amber);color:var(--cream);padding:14px 22px;border-radius:99px;font-size:13px;font-weight:700;z-index:380;transition:transform .45s var(--ease);box-shadow:0 18px 40px rgba(0,0,0,.5);max-width:90vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,[data-hero],.split .wi{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<noscript><style>.reveal,[data-hero],.split .wi,.meter i,.vbar i,.gbar i,.agechip .track::before{opacity:1!important;transform:none!important}.meter i,.vbar i,.gbar i{width:var(--w,100%)!important}#preloader{display:none}</style></noscript>
+
+<div class="grain" aria-hidden="true"></div>
+<div id="progressBar" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pre-words"><span>DOSE</span><span>2</span><span>DOOR</span></div>
+  <div class="pre-bar"><i id="preFill"></i></div>
+  <div class="pre-nums"><span id="preNum">0</span>%</div>
+</div>
+
+<div class="announce" aria-hidden="true">
+  <div class="announce-track">
+    <span>FREE DELIVERY OVER R450&nbsp;&nbsp;SUBSCRIBE &amp; SAVE 15%&nbsp;&nbsp;GMP-CERTIFIED · BATCH-TESTED&nbsp;&nbsp;48H SUBURBAN COURIER&nbsp;&nbsp;DROP 001 LIVE NOW&nbsp;&nbsp;</span>
+    <span>FREE DELIVERY OVER R450&nbsp;&nbsp;SUBSCRIBE &amp; SAVE 15%&nbsp;&nbsp;GMP-CERTIFIED · BATCH-TESTED&nbsp;&nbsp;48H SUBURBAN COURIER&nbsp;&nbsp;DROP 001 LIVE NOW&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="Dose 2 Door home">DOSE<span class="two">2</span>DOOR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#lineup">The Line-Up</a>
+      <a href="#why">Why It Sells</a>
+      <a href="#data">Demand Data</a>
+      <a href="#niches">Sub-Niches</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a class="nav-cta" href="#lineup">Shop Bestsellers</a>
+      <button id="navToggle" aria-label="Toggle menu"><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div id="mobileMenu" aria-hidden="true">
+  <div class="mm-top">
+    <a class="logo" href="#top">DOSE<span class="two">2</span>DOOR</a>
+    <button class="icon-btn" id="mmClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mm-links">
+    <a class="mm-link" style="transition-delay:.08s" href="#lineup"><small>01</small>The Line-Up</a>
+    <a class="mm-link" style="transition-delay:.14s" href="#why"><small>02</small>Why It Sells</a>
+    <a class="mm-link" style="transition-delay:.2s" href="#data"><small>03</small>Demand Data</a>
+    <a class="mm-link" style="transition-delay:.26s" href="#niches"><small>04</small>Sub-Niches</a>
+    <a class="mm-link" style="transition-delay:.32s" href="#faq"><small>05</small>FAQ</a>
+  </nav>
+  <div class="mm-foot">
+    <span>48h tracked courier · free over R450</span>
+    <a href="mailto:hello@dose2door.co.za">hello@dose2door.co.za</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-media" aria-hidden="true">
+    <div class="hero-glow"></div>
+    <div class="ring r1"></div><div class="ring r2"></div>
+    <div class="cap c1"></div><div class="cap c2"></div><div class="cap c3"></div><div class="cap c4"></div>
+    <div class="tabp"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <p class="kicker" data-hero style="--d:.05s">Dose 2 Door · Supplement Drop 001</p>
+    <h1 class="split" aria-label="Five SKUs. Zero filler. Pure demand.">
+      <span class="hl"><span class="w"><span class="wi">FIVE</span></span> <span class="w"><span class="wi">SKUS.</span></span></span>
+      <span class="hl"><em class="acc"><span class="w"><span class="wi">ZERO</span></span> <span class="w"><span class="wi">FILLER.</span></span></em></span>
+      <span class="hl stroke"><span class="w"><span class="wi">PURE</span></span> <span class="w"><span class="wi">DEMAND.</span></span></span>
+    </h1>
+    <p class="lede" data-hero style="--d:.35s">A conversion-tested edit of the supplements South Africa actually reorders — priced from <strong style="color:var(--amber)">R180</strong>, backed by hard volume data, and on your suburb's doorstep in <strong style="color:var(--amber)">48 hours</strong>.</p>
+    <div class="hero-ctas" data-hero style="--d:.45s">
+      <a class="btn btn-amber" href="#lineup">Shop the Line-Up</a>
+      <a class="btn btn-ghost" href="#why">See Why It Sells</a>
+    </div>
+    <div class="hero-stats" data-hero style="--d:.6s">
+      <div class="hstat"><span class="hnum"><b data-count="99661">0</b></span><span class="hlab">Omega-3 units/mo · global</span></div>
+      <div class="hstat"><span class="hnum"><b data-count="30">0</b>%</span><span class="hlab">D3 repeat purchase rate</span></div>
+      <div class="hstat"><span class="hnum"><b data-count="60">0</b>%+</span><span class="hlab">Female-led carts</span></div>
+      <div class="hstat"><span class="hnum"><b data-count="48">0</b>h</span><span class="hlab">Suburban delivery</span></div>
+    </div>
+  </div>
+  <svg class="rot-badge" viewBox="0 0 132 132" aria-hidden="true">
+    <defs><path id="circPath" d="M66,66 m-49,0 a49,49 0 1,1 98,0 a49,49 0 1,1 -98,0"/></defs>
+    <text><textPath href="#circPath">100% AUTHENTIC · GMP CERTIFIED · BATCH TESTED ·</textPath></text>
+    <path class="plus" d="M66 54v24M54 66h24" stroke="currentColor" stroke-width="0" fill="none"/>
+  </svg>
+</section>
+
+<!-- ============ BIG MARQUEE ============ -->
+<div class="big-marq" aria-hidden="true">
+  <div class="bm-track">
+    <span>Immunity</span><span class="sep">✦</span><span>Heart</span><span class="sep">✦</span><span>Brain</span><span class="sep">✦</span><span>Skin</span><span class="sep">✦</span><span>Joints</span><span class="sep">✦</span><span>Energy</span><span class="sep">✦</span>
+    <span>Immunity</span><span class="sep">✦</span><span>Heart</span><span class="sep">✦</span><span>Brain</span><span class="sep">✦</span><span>Skin</span><span class="sep">✦</span><span>Joints</span><span class="sep">✦</span><span>Energy</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- ============ LINE-UP / PRODUCT PRICE ============ -->
+<section class="sec on-cream" id="lineup">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker reveal">The Line-Up · Drop 001</p>
+      <h2 class="h2 split"><span class="w"><span class="wi">PRICED</span></span> <em class="acc"><span class="w"><span class="wi">TO</span></span></em> <span class="w"><span class="wi">MOVE.</span></span></h2>
+      <p class="lede reveal" style="--d:.1s">Five SKUs, one shelf, zero guesswork. Street-range pricing shown up front — every unit is a proven performer with the receipts to match.</p>
+    </div>
+    <div class="line-grid">
+
+      <article class="pcard reveal">
+        <div class="pc-top"><span class="ptag">Immunity</span><span class="pbadge">Loyalty Pick</span></div>
+        <h3 class="pc-name">Vitamin D3 5000IU</h3>
+        <p class="pc-spec">120 capsules · 4-month supply</p>
+        <div class="pc-price"><span class="pricetag">R250–R350</span><span class="perday">from R2.08/day</span></div>
+        <div>
+          <div class="meter-head"><span>Demand signal</span><span>82 / 100</span></div>
+          <div class="meter"><i data-fill="82"></i></div>
+        </div>
+        <p class="pc-stat"><strong>30% repeat purchase rate</strong> — one in three buyers reorders before the bottle runs dry.</p>
+        <p class="pc-why">Post-pandemic immune health turned D3 into a daily default, not a winter fling.</p>
+        <div class="pc-actions">
+          <button class="add" data-add="d3">Add to Cart · R289</button>
+          <button class="linkwhy" data-tab-jump="d3">Why it sells ↘</button>
+        </div>
+      </article>
+
+      <article class="pcard feat reveal" style="--d:.08s">
+        <div class="pc-top"><span class="ptag" style="color:var(--amber);border-color:rgba(231,154,60,.5)">Heart + Brain</span><span class="pbadge">Volume King</span></div>
+        <h3 class="pc-name">Omega-3 Fish Oil</h3>
+        <p class="pc-spec">1000mg · 180 softgels · 3-month supply</p>
+        <div class="pc-price"><span class="pricetag">R300–R450</span><span class="perday">from R1.67/day</span></div>
+        <div>
+          <div class="meter-head"><span>Demand signal</span><span>96 / 100</span></div>
+          <div class="meter"><i data-fill="96"></i></div>
+        </div>
+        <p class="pc-stat"><strong>99,661 units/mo</strong> global volume — the category's biggest mover, month after month.</p>
+        <p class="pc-why">Heart- and brain-health buyers treat fish oil like a utility: replace, never reconsider.</p>
+        <div class="pc-actions">
+          <button class="add" data-add="omega">Add to Cart · R379</button>
+          <button class="linkwhy" data-tab-jump="omega">Why it sells ↘</button>
+        </div>
+      </article>
+
+      <article class="pcard reveal" style="--d:.16s">
+        <div class="pc-top"><span class="ptag">Daily Base</span><span class="pbadge">Gateway SKU</span></div>
+        <h3 class="pc-name">Multivitamin W / M</h3>
+        <p class="pc-spec">Women's &amp; Men's · 90 tablets · 3-month supply</p>
+        <div class="pc-price"><span class="pricetag">R200–R400</span><span class="perday">from R2.22/day</span></div>
+        <div>
+          <div class="meter-head"><span>Demand signal</span><span>88 / 100</span></div>
+          <div class="meter"><i data-fill="88"></i></div>
+        </div>
+        <p class="pc-stat"><strong>20,953 units/mo</strong> for One A Day Women's alone — pure habit-loop volume.</p>
+        <p class="pc-why">Same shelf, same basket, every month. The gateway to every other repeat buy.</p>
+        <div class="pc-actions">
+          <button class="add" data-add="multi">Add to Cart · R329</button>
+          <button class="linkwhy" data-tab-jump="multi">Why it sells ↘</button>
+        </div>
+      </article>
+
+      <article class="pcard wide reveal">
+        <div class="pc-top"><span class="ptag">Immune Defence</span><span class="pbadge">Retail Proven</span></div>
+        <h3 class="pc-name">Vitamin C + Zinc</h3>
+        <p class="pc-spec">60 effervescent tabs · 2-month supply</p>
+        <div class="pc-price"><span class="pricetag">R180–R350</span><span class="perday">from R3.00/day</span></div>
+        <div>
+          <div class="meter-head"><span>Demand signal</span><span>90 / 100 · spikes to 100 in winter</span></div>
+          <div class="meter"><i data-fill="90"></i></div>
+        </div>
+        <p class="pc-stat"><strong>Top seller at Woolworths &amp; Dis-Chem</strong> — retail-grade proof you don't have to create, only stock.</p>
+        <p class="pc-why">When the first winter throat gets scratchy, urgency does the marketing. Buy deep, merchandise front and centre from April.</p>
+        <div class="pc-actions">
+          <button class="add" data-add="czinc">Add to Cart · R249</button>
+          <button class="linkwhy" data-tab-jump="czinc">Why it sells ↘</button>
+        </div>
+      </article>
+
+      <article class="pcard wide reveal" style="--d:.08s">
+        <div class="pc-top"><span class="ptag">Beauty From Within</span><span class="pbadge" style="background:var(--amber2)">Fastest Rising</span></div>
+        <h3 class="pc-name">Collagen Peptides</h3>
+        <p class="pc-spec">300g unflavoured · 30 servings</p>
+        <div class="pc-price"><span class="pricetag">R350–R500</span><span class="perday">≈ R11.70 / serving</span></div>
+        <div>
+          <div class="meter-head"><span>Demand signal</span><span>74 / 100 · climbing</span></div>
+          <div class="meter"><i data-fill="74"></i></div>
+        </div>
+        <p class="pc-stat"><strong>Fastest-growing sub-niche in wellness</strong> — skin, joints and fitness in one tub.</p>
+        <p class="pc-why">Premium band, subscription gold: powder formats reorder like clockwork, and the buyer is exactly who already shops this shelf.</p>
+        <div class="pc-actions">
+          <button class="add" data-add="collagen">Add to Cart · R429</button>
+          <button class="linkwhy" data-tab-jump="collagen">Why it sells ↘</button>
+        </div>
+      </article>
+
+    </div>
+    <p class="shelf-note reveal">All prices in ZAR · street range shown, from-price charged at checkout · every batch GMP-certified and traceable.</p>
+  </div>
+</section>
+
+<!-- ============ WHY IT SELLS ============ -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker reveal">Why It Sells</p>
+      <h2 class="h2 split"><span class="w"><span class="wi">RECEIPTS,</span></span> <span class="w"><span class="wi stroke">NOT</span></span> <span class="w"><span class="wi stroke">HYPE.</span></span></h2>
+      <p class="lede reveal" style="--d:.1s">Every SKU on this shelf earns its place. Pick a product — price band, volume indicator, buyer and seasonality, no fluff.</p>
+    </div>
+    <div class="why-grid">
+      <div class="tab-list reveal" role="tablist" aria-label="Products">
+        <button class="tab-btn on" data-tab="d3" role="tab" aria-selected="true"><span class="tno">01</span><span class="tmain"><span class="tname">Vitamin D3 5000IU</span><span class="tmeta">Immunity anchor</span></span><span class="tband">R250–R350</span></button>
+        <button class="tab-btn" data-tab="omega" role="tab" aria-selected="false"><span class="tno">02</span><span class="tmain"><span class="tname">Omega-3 Fish Oil</span><span class="tmeta">Volume king</span></span><span class="tband">R300–R450</span></button>
+        <button class="tab-btn" data-tab="multi" role="tab" aria-selected="false"><span class="tno">03</span><span class="tmain"><span class="tname">Multivitamin W/M</span><span class="tmeta">Gateway SKU</span></span><span class="tband">R200–R400</span></button>
+        <button class="tab-btn" data-tab="czinc" role="tab" aria-selected="false"><span class="tno">04</span><span class="tmain"><span class="tname">Vitamin C + Zinc</span><span class="tmeta">Retail proven</span></span><span class="tband">R180–R350</span></button>
+        <button class="tab-btn" data-tab="collagen" role="tab" aria-selected="false"><span class="tno">05</span><span class="tmain"><span class="tname">Collagen Peptides</span><span class="tmeta">Fastest rising</span></span><span class="tband">R350–R500</span></button>
+      </div>
+      <div class="why-panel reveal" id="whyPanel" style="--d:.12s"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMAND DATA ============ -->
+<section class="sec" id="data" style="background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker reveal">Demand Data</p>
+      <h2 class="h2 split"><span class="w"><span class="wi">THE</span></span> <span class="w"><span class="wi">NUMBERS</span></span> <em class="acc"><span class="w"><span class="wi">DON'T</span></span> <span class="w"><span class="wi">LIE.</span></span></em></h2>
+    </div>
+    <div class="data-grid">
+      <div class="dstats">
+        <div class="stat reveal"><span class="num"><b data-count="99661">0</b></span><p>Omega-3 units sold globally, every single month</p></div>
+        <div class="stat reveal" style="--d:.08s"><span class="num"><b data-count="20953">0</b></span><p>Monthly units — One A Day Women's multivitamin alone</p></div>
+        <div class="stat reveal" style="--d:.16s"><span class="num"><b data-count="30">0</b><small>%</small></span><p>Vitamin D3 buyers who reorder — the loyalty benchmark</p></div>
+        <div class="stat reveal" style="--d:.24s"><span class="num"><b data-count="60">0</b><small>%+</small></span><p>Of carts led by women aged 25–55 in the suburbs</p></div>
+      </div>
+      <div class="dpanel reveal" style="--d:.15s">
+        <div>
+          <h3>Volume indicators · monthly units</h3>
+          <div class="vrow" style="margin-top:16px">
+            <div class="vhead"><span>Omega-3 fish oil · global</span><b>99,661<small>u/mo</small></b></div>
+            <div class="vbar"><i data-fill="100"></i></div>
+          </div>
+          <div class="vrow" style="margin-top:16px">
+            <div class="vhead"><span>One A Day Women's · multi</span><b>20,953<small>u/mo</small></b></div>
+            <div class="vbar"><i class="soft" data-fill="21"></i></div>
+          </div>
+        </div>
+        <div class="sparkbox">
+          <h4>Vitamin C + Zinc · seasonal demand curve</h4>
+          <svg class="spark" viewBox="0 0 320 90" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e79a3c" stop-opacity=".28"/><stop offset="1" stop-color="#e79a3c" stop-opacity="0"/></linearGradient></defs>
+            <path class="area" d="M0 66 C20 64 40 62 60 58 C80 54 95 50 110 44 C125 38 132 26 145 18 C158 12 170 16 180 28 C195 44 215 56 240 62 C270 68 300 70 320 71 L320 90 L0 90 Z" fill="url(#sg)"/>
+            <path class="line" pathLength="1" d="M0 66 C20 64 40 62 60 58 C80 54 95 50 110 44 C125 38 132 26 145 18 C158 12 170 16 180 28 C195 44 215 56 240 62 C270 68 300 70 320 71" fill="none" stroke="#e79a3c" stroke-width="2.5" stroke-linecap="round"/>
+            <circle class="dot" cx="145" cy="18" r="4.5" fill="#e79a3c"/>
+          </svg>
+          <div class="months"><span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span>NOV</span><span>DEC</span></div>
+          <p class="spark-note">Sharp May–Aug spike. Stock deep by April — the season does the marketing for you.</p>
+        </div>
+        <div class="aud">
+          <h3 style="margin-bottom:14px">Who's buying</h3>
+          <div class="gbar"><i data-fill="60"></i></div>
+          <div class="glab"><span>Female 60%+</span><span>Male 40%</span></div>
+          <div class="agechip"><span>25</span><span class="track"></span><span>55</span></div>
+          <p class="spark-note" style="margin-top:10px">Core band: health-conscious adults 25–55, suburban, overwhelmingly repeat buyers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIENCE BAND ============ -->
+<section class="aud-band">
+  <div class="wrap aud-grid">
+    <div>
+      <p class="kicker reveal">The Buyer</p>
+      <h2 class="split"><span class="w"><span class="wi">SUBURBAN.</span></span> <span class="w"><span class="wi out">FEMALE-LED.</span></span><br><span class="w"><span class="wi out">BACK</span></span> <span class="w"><span class="wi">FOR</span></span> <span class="w"><span class="wi">MORE.</span></span></h2>
+    </div>
+    <div class="aud-facts reveal" style="--d:.15s">
+      <div class="afact"><b>25–55</b><span>Health-conscious adults in the suburbs — old enough to be loyal, young enough to be online.</span></div>
+      <div class="afact"><b>60%+</b><span>Of orders are led by women — and women build the household's supplement routine.</span></div>
+      <div class="afact"><b>Repeat</b><span>These aren't once-a-year shoppers. Supplements are habits, and habits reorder themselves.</span></div>
+      <div class="aud-split">
+        <div class="gbar"><i data-fill="60"></i></div>
+        <div class="glab"><span>Female share of carts</span><span>Male share</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUB-NICHES ============ -->
+<section class="sec" id="niches">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker reveal">Next On Shelf</p>
+      <h2 class="h2 split"><span class="w"><span class="wi">FOUR</span></span> <span class="w"><span class="wi">MORE</span></span> <em class="acc"><span class="w"><span class="wi">WAYS</span></span></em> <span class="w"><span class="wi">TO</span></span> <span class="w"><span class="wi stroke">WIN.</span></span></h2>
+      <p class="lede reveal" style="--d:.1s">The core five pay the bills. These sub-niches compound the basket — already scouted, priced and queued for Drop 002.</p>
+    </div>
+    <div class="nich-grid">
+      <article class="nich reveal">
+        <span class="no">01</span>
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c3.5 4.2 6 7.4 6 10a6 6 0 1 1-12 0c0-2.6 2.5-5.8 6-10z"/></svg></span>
+        <h3><small>Women's Health</small>Iron</h3>
+        <p>Energy's quiet crisis. Iron speaks directly to women 25–45 — the core of this store — and slots right next to the multi as an easy second add.</p>
+        <span class="chip">Signal · subscription-friendly, high LTV</span>
+      </article>
+      <article class="nich reveal" style="--d:.08s">
+        <span class="no">02</span>
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="10.4" width="12" height="3.2" rx="1.6"/><circle cx="5.4" cy="12" r="2.8"/><circle cx="18.6" cy="12" r="2.8"/></svg></span>
+        <h3><small>Joint Support</small>Glucosamine + MSM</h3>
+        <p>An active, ageing suburbia keeps joint combos in steady rotation. These buyers research less and reorder more — the lowest-churn carts in the category.</p>
+        <span class="chip">Signal · lowest churn buyer</span>
+      </article>
+      <article class="nich reveal" style="--d:.16s">
+        <span class="no">03</span>
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="13" width="7" height="7" rx="2.4"/><rect x="14" y="13" width="7" height="7" rx="2.4"/><rect x="8.5" y="4" width="7" height="7" rx="2.4"/></svg></span>
+        <h3><small>Kids' Vitamins</small>Gummy Formats</h3>
+        <p>The trojan horse of the family cart. One kids' gummy SKU lifts basket size, unlocks the whole household, and turns mom into the store's best ambassador.</p>
+        <span class="chip">Signal · basket builder</span>
+      </article>
+      <article class="nich reveal" style="--d:.24s">
+        <span class="no">04</span>
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12v9M4 7.5l8 4.5 8-4.5"/></svg></span>
+        <h3><small>Format Innovation</small>The 2026 Shelf</h3>
+        <p>In 2026, the format is the differentiator. Same actives, new vessel — and the winner is whoever ships it first.</p>
+        <div class="fmt-chips"><i>Gummies 2.0</i><i>Sachets</i><i>Effervescents</i><i>Stick packs</i><i>Chewables</i><i>Personalised stacks</i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS / TESTIMONIALS ============ -->
+<section class="sec on-cream" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker reveal">How Dose 2 Door Works</p>
+      <h2 class="h2 split"><span class="w"><span class="wi">CART</span></span> <span class="w"><span class="wi">TO</span></span> <em class="acc"><span class="w"><span class="wi">CURB</span></span></em> <span class="w"><span class="wi">IN</span></span> <span class="w"><span class="wi stroke">48H.</span></span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="sno">01</span><h3>Pick Your Protocol</h3><p>Five proven SKUs, honest street-range pricing, and per-day costs shown up front. Build your shelf in under a minute.</p></div>
+      <div class="step reveal" style="--d:.1s"><span class="sno">02</span><h3>Subscribe &amp; Save 15%</h3><p>Turn any bottle into a subscription with one toggle. 15% off every reorder, on your schedule — skip, swap or cancel anytime.</p></div>
+      <div class="step reveal" style="--d:.2s"><span class="sno">03</span><h3>48H to Your Suburb</h3><p>Order before 14:00 and it ships same day on a tracked courier. Free delivery on every cart over R450, door to door.</p></div>
+    </div>
+    <div class="sub-banner reveal">
+      <div>
+        <h3>YOUR ROUTINE, <em>ON REPEAT.</em></h3>
+        <p>Supplements are habits — so we priced them like it. Subscribe &amp; Save 15% applies to every product on the shelf, forever, until you say stop.</p>
+      </div>
+      <a class="btn btn-amber" href="#lineup">Start Your Shelf</a>
+    </div>
+    <div class="tgrid">
+      <div class="tcard reveal"><span class="stars">★★★★★</span><q>My Omega-3 lands before I've finished the last bottle. The 48-hour thing is genuinely real.</q><span class="who">Lerato M. · Centurion</span></div>
+      <div class="tcard reveal" style="--d:.1s"><span class="stars">★★★★★</span><q>Third winter in a row on the D3. It's just part of the routine now — I don't even think about reordering.</q><span class="who">Thandi K. · Durbanville</span></div>
+      <div class="tcard reveal" style="--d:.2s"><span class="stars">★★★★★</span><q>Bought the collagen for my skin. Stayed for my knees. The tub lasts and it actually mixes.</q><span class="who">Aisha P. · Umhlanga</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker reveal">Fine Print, Big Type</p>
+      <h2 class="h2 split"><span class="w"><span class="wi">QUESTIONS?</span></span> <em class="acc"><span class="w"><span class="wi">ANSWERED.</span></span></em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Is everything 100% authentic?<span class="fi">+</span></button>
+        <div class="faq-a"><p>Every SKU is sourced from GMP-certified manufacturers and authorised South African distributors, batch-tested and fully traceable. If it's on our shelf, it's the real thing — no grey imports, no expired relabels.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How fast is delivery, really?<span class="fi">+</span></button>
+        <div class="faq-a"><p>Order before 14:00 and your parcel ships the same day on a tracked courier. Most suburbs receive within 48 hours, and delivery is free on every cart over R450.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How does Subscribe &amp; Save work?<span class="fi">+</span></button>
+        <div class="faq-a"><p>Toggle it on any product at checkout for 15% off every repeat order, delivered on your chosen schedule. Skip a month, swap products or cancel whenever you like — no lock-in, no phone calls.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can I return supplements?<span class="fi">+</span></button>
+        <div class="faq-a"><p>Unopened, sealed products can be returned within 30 days for a full refund. If a batch ever arrives compromised, we replace it immediately — no questions asked.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Should I check with a doctor first?<span class="fi">+</span></button>
+        <div class="faq-a"><p>Yes, always. Supplements support wellness — they don't treat disease. Talk to your healthcare provider before starting any regimen, especially if you're pregnant, nursing or on medication.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / NEWSLETTER ============ -->
+<section class="sec cta">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker reveal" style="justify-content:center">Drop 002 · Loading</p>
+    <h2 class="split"><span class="w"><span class="wi">YOUR</span></span> <span class="w"><span class="wi">DAILY</span></span> <span class="w"><span class="wi">DOSE</span></span> <span class="w"><span class="wi out">AWAITS.</span></span></h2>
+    <p class="lede reveal" style="margin:0 auto">First access to kids' gummies, iron, and the full 2026 format pack — plus 10% off your first shelf.</p>
+    <form class="nl-form reveal" id="nlForm" style="--d:.1s" novalidate>
+      <input type="email" id="nlEmail" placeholder="you@suburb.co.za" aria-label="Email address" required>
+      <button class="btn btn-amber" type="submit">Get First Access</button>
+    </form>
+    <div class="nl-done" id="nlDone">
+      <span class="ok">✓</span>
+      <b class="dfont" style="font-size:1.4rem">YOU'RE ON THE LIST.</b>
+      <small style="color:var(--mut)">First dibs on Drop 002 lands in your inbox. Watch this shelf.</small>
+    </div>
+    <small class="reveal" style="--d:.2s">No spam. One email per drop. Unsubscribe anytime.</small>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="logo" href="#top">DOSE<span class="two">2</span>DOOR</a>
+        <p>South Africa's conversion-tested supplement shelf. Five proven SKUs, honest pricing, 48-hour suburban delivery — and receipts for every claim.</p>
+        <div class="pay"><i>VISA</i><i>MASTERCARD</i><i>SNAPSCAN</i><i>PAYSHAP</i></div>
+      </div>
+      <div class="f-col">
+        <h4>Shop</h4>
+        <a href="#lineup">Vitamin D3 5000IU</a>
+        <a href="#lineup">Omega-3 Fish Oil</a>
+        <a href="#lineup">Multivitamin W/M</a>
+        <a href="#lineup">Vitamin C + Zinc</a>
+        <a href="#lineup">Collagen Peptides</a>
+      </div>
+      <div class="f-col">
+        <h4>Next On Shelf</h4>
+        <a href="#niches">Iron · Women's Health</a>
+        <a href="#niches">Glucosamine + MSM</a>
+        <a href="#niches">Kids' Gummies</a>
+        <a href="#niches">2026 Format Pack</a>
+      </div>
+      <div class="f-col">
+        <h4>Help</h4>
+        <a href="#faq">Delivery &amp; Returns</a>
+        <a href="#faq">Subscriptions</a>
+        <a href="#faq">Authenticity</a>
+        <a href="mailto:hello@dose2door.co.za">hello@dose2door.co.za</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p class="disc">Dose 2 Door sells wellness, not miracles. These statements have not been evaluated by SAHPRA, and our products are not intended to diagnose, treat, cure or prevent any disease. Always consult a qualified healthcare professional before starting any supplement regimen.</p>
+      <p class="copy">© <span id="year">2026</span> DOSE 2 DOOR · Built for the shelf.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div id="backdrop"></div>
+<aside id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+  <div class="cd-head">
+    <h3>Your Shelf <span id="cdCount"></span></h3>
+    <button class="cd-close" id="cartClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cd-ship">
+    <div class="cd-ship-label" id="shipLabel">Free delivery over <b>R450</b></div>
+    <div class="cd-ship-bar"><i id="shipFill"></i></div>
+  </div>
+  <div class="cd-items" id="cdItems"></div>
+  <div class="cd-empty" id="cdEmpty">
+    <span class="big">Empty shelf.</span>
+    <span>Five proven SKUs are waiting. Start with the volume king.</span>
+    <button class="btn btn-amber" id="emptyShop">Browse the Line-Up</button>
+  </div>
+  <div class="cd-foot" id="cdFoot">
+    <label class="cd-sub"><input type="checkbox" id="subToggle"> Subscribe &amp; Save <b>15%</b> on every reorder</label>
+    <div class="cd-row"><span>Subtotal</span><span id="cdSubtotal">R0</span></div>
+    <div class="cd-row save" id="cdSaveRow"><span>Subscription saving</span><span id="cdSave">–R0</span></div>
+    <div class="cd-row total"><span>Total</span><span id="cdTotal">R0</span></div>
+    <button class="btn-checkout" id="checkoutBtn">Checkout Securely</button>
+    <p class="cd-note">48h tracked courier · free over R450</p>
+  </div>
+</aside>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ DATA ============ */
+const PRODUCTS = {
+  d3:{name:'Vitamin D3 5000IU',spec:'120 caps · 4-month supply',price:289,c:'#e79a3c'},
+  omega:{name:'Omega-3 Fish Oil 1000mg',spec:'180 softgels · 3-month supply',price:379,c:'#e3c06a'},
+  multi:{name:"Multivitamin · Women's / Men's",spec:'90 tablets · 3-month supply',price:329,c:'#3fae6a'},
+  czinc:{name:'Vitamin C + Zinc',spec:'60 effervescent tabs · 2-month supply',price:249,c:'#e8492e'},
+  collagen:{name:'Collagen Peptides',spec:'300g unflavoured · 30 servings',price:429,c:'#e0879b'}
+};
+const WHY = {
+  d3:{tag:'Immunity Anchor',name:'Vitamin D3 5000IU',band:'R250 – R350',vol:'30% repeat purchase rate',buyer:'Adults 30–55 · suburban',season:'Year-round · winter-weighted (May–Aug)',
+    why:"Post-pandemic, immune support stopped being a winter fling and became a daily default. D3 5000IU is the highest-conviction SKU in the edit: a 30% repeat purchase rate means one in three buyers reorders before the bottle even runs dry. A 120-cap bottle lowers the purchase hurdle, lifts basket size, and quietly builds the subscription base.",
+    lever:'Loyalty engine',leverTxt:'Pair D3 with Subscribe & Save and that 30% repeat rate compounds into predictable monthly revenue.'},
+  omega:{tag:'Volume King',name:'Omega-3 Fish Oil',band:'R300 – R450',vol:'99,661 units moved globally per month',buyer:'Adults 35–55 · heart & brain focus',season:'Evergreen · no dead months',
+    why:"Heart and brain health is the biggest story in supplements — and the numbers prove it: 99,661 units a month move globally, with South African retail tracking the same curve. Softgels ship cheap, shelf long, and buyers treat fish oil like a utility: when the bottle's empty they replace it, they don't reconsider.",
+    lever:'Basket anchor',leverTxt:'The proven category leader that legitimises the whole shelf for first-time buyers.'},
+  multi:{tag:'Gateway SKU',name:'Multivitamins · Women\u2019s / Men\u2019s',band:'R200 – R400',vol:'20,953 units/mo — One A Day Women\u2019s alone',buyer:'Adults 25–45 · 60%+ female',season:'Evergreen · January “reset” spike',
+    why:"The multivitamin is the gateway product of the entire category. One A Day Women's alone moves 20,953 units every month on a pure habit loop — same time, same shelf, same basket. Carrying women's and men's variants doubles shelf presence without splitting the story, and it's the natural first step into iron, collagen and kids' formats.",
+    lever:'Habit loop',leverTxt:'Daily-use products are subscription gold — the multi is where repeat relationships start.'},
+  czinc:{tag:'Retail Proven',name:'Vitamin C + Zinc',band:'R180 – R350',vol:'Top seller at Woolworths & Dis-Chem',buyer:'All adults 25–55 · household staple',season:'Sharp seasonal spikes · May–Aug',
+    why:"When the first cold of winter hits, this flies off shelves. Vitamin C + Zinc is a perennial top seller at Woolworths and Dis-Chem — retail-grade proof of demand you don't have to create, only stock. The R180 entry band makes it the perfect first add-on to any cart, and the seasonal spike does the marketing for you.",
+    lever:'Urgency play',leverTxt:'Buy deep before winter, merchandise front and centre from April, ride the May–Aug spike.'},
+  collagen:{tag:'Fastest Rising',name:'Collagen Peptides',band:'R350 – R500',vol:'Fastest-growing beauty & wellness sub-niche',buyer:'Adults 25–45 · 70%+ female',season:'Evergreen · summer-weighted',
+    why:"Beauty-from-within is the fastest-growing sub-niche in wellness, and collagen peptides sit right at its centre — one tub answers skin, joint and fitness motivations at once. Powder formats reorder like clockwork, the R350–R500 band carries premium margin, and the audience is exactly who already shops this store: health-conscious suburban women.",
+    lever:'Margin + mission',leverTxt:'The highest price band in the edit, attached to the most emotionally invested buyer.'}
+};
+/* ============ HELPERS ============ */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const fmt = n => 'R' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const numFmt = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+let toastTimer;
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+/* ============ PRELOADER ============ */
+(function(){
+  const fill = $('#preFill'), num = $('#preNum'), pre = $('#preloader');
+  let p = 0;
+  const iv = setInterval(()=>{
+    p += Math.random()*9 + 4;
+    if(p >= 100){
+      p = 100; clearInterval(iv);
+      setTimeout(()=>{
+        pre.classList.add('done');
+        document.body.classList.add('is-loaded');
+        initObservers();
+        setTimeout(()=>pre.style.display='none', 900);
+      }, 220);
+    }
+    fill.style.width = p + '%';
+    num.textContent = Math.floor(p);
+  }, 70);
+})();
+/* ============ CURSOR ============ */
+(function(){
+  if(matchMedia('(hover:none)').matches) return;
+  const dot = $('.cursor-dot'), ring = $('.cursor-ring');
+  let mx=-100,my=-100,rx=-100,ry=-100;
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+  document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.pcard,.nich,input')) ring.classList.add('is-active');});
+  document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.pcard,.nich,input')) ring.classList.remove('is-active');});
+})();
+/* ============ PROGRESS / NAV ============ */
+const nav = $('#siteNav');
+addEventListener('scroll',()=>{
+  const h = document.documentElement;
+  $('#progressBar').style.transform = 'scaleX(' + (h.scrollTop/(h.scrollHeight-h.clientHeight)) + ')';
+  nav.classList.toggle('scrolled', h.scrollTop > 30);
+},{passive:true});
+/* ============ MOBILE MENU ============ */
+const mm = $('#mobileMenu'), navToggle = $('#navToggle');
+function setMenu(open){
+  mm.classList.toggle('open',open);
+  navToggle.classList.toggle('open',open);
+  navToggle.setAttribute('aria-label', open?'Close menu':'Toggle menu');
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+navToggle.addEventListener('click',()=>setMenu(!mm.classList.contains('open')));
+$('#mmClose').addEventListener('click',()=>setMenu(false));
+$$('.mm-link, .mm-top .logo').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+/* ============ SPLIT TEXT INDICES ============ */
+$$('.split').forEach(sp=>{
+  sp.querySelectorAll('.wi').forEach((w,i)=>w.style.setProperty('--i',i));
+});
+/* ============ OBSERVERS ============ */
+function initObservers(){
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+  $$('.reveal, .split, .spark, .agechip').forEach(el=>io.observe(el));
+
+  const cio = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el = e.target, target = parseFloat(el.dataset.count), dur = 1500, start = performance.now();
+      function step(t){
+        const p = Math.min((t-start)/dur,1), ease = 1-Math.pow(1-p,3);
+        el.textContent = numFmt(target*ease);
+        if(p<1) requestAnimationFrame(step); else el.textContent = numFmt(target);
+      }
+      requestAnimationFrame(step); cio.unobserve(el);
+    });
+  },{threshold:.5});
+  $$('[data-count]').forEach(el=>cio.observe(el));
+
+  const fio = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.style.width = e.target.dataset.fill + '%'; fio.unobserve(e.target);} });
+  },{threshold:.4});
+  $$('[data-fill]').forEach(el=>fio.observe(el));
+}
+/* ============ WHY IT SELLS TABS ============ */
+const panel = $('#whyPanel');
+function renderWhy(id){
+  const d = WHY[id];
+  panel.classList.remove('show');
+  setTimeout(()=>{
+    panel.innerHTML = `
+      <span class="wp-tag">${d.tag}</span>
+      <h3 class="wp-name">${d.name}</h3>
+      <p class="wp-why">${d.why}</p>
+      <div class="wp-signals">
+        <div class="sig"><small>Price Band</small><b>${d.band}</b></div>
+        <div class="sig"><small>Volume Indicator</small><b>${d.vol}</b></div>
+        <div class="sig"><small>Who's Buying</small><b>${d.buyer}</b></div>
+        <div class="sig"><small>Seasonality</small><b>${d.season}</b></div>
+      </div>
+      <div class="wp-lever"><b>Conversion lever · ${d.lever}</b>${d.leverTxt}</div>`;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>panel.classList.add('show')));
+  },180);
+}
+function selectTab(id){
+  $$('.tab-btn').forEach(b=>{
+    const on = b.dataset.tab === id;
+    b.classList.toggle('on',on);
+    b.setAttribute('aria-selected',on);
+  });
+  renderWhy(id);
+}
+$$('.tab-btn').forEach(b=>b.addEventListener('click',()=>selectTab(b.dataset.tab)));
+renderWhy('d3');
+panel.classList.add('show');
+$$('[data-tab-jump]').forEach(b=>b.addEventListener('click',()=>{
+  selectTab(b.dataset.tabJump);
+  document.getElementById('why').scrollIntoView({behavior:'smooth'});
+}));
+/* ============ CART ============ */
+let cart = {};
+const drawer = $('#cartDrawer'), backdrop = $('#backdrop'), badge = $('#cartBadge');
+function openCart(){ drawer.classList.add('open'); backdrop.classList.add('show'); drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+function closeCart(){ drawer.classList.remove('open'); backdrop.classList.remove('show'); drawer.setAttribute('aria-hidden','true'); if(!mm.classList.contains('open')) document.body.style.overflow=''; }
+$('#cartBtn').addEventListener('click',openCart);
+$('#cartClose').addEventListener('click',closeCart);
+backdrop.addEventListener('click',closeCart);
+$('#emptyShop').addEventListener('click',()=>{closeCart();document.getElementById('lineup').scrollIntoView({behavior:'smooth'});});
+addEventListener('keydown',e=>{ if(e.key==='Escape'){closeCart();setMenu(false);} });
+function renderCart(){
+  const items = Object.entries(cart);
+  const count = items.reduce((a,[,q])=>a+q,0);
+  badge.textContent = count;
+  badge.classList.toggle('show',count>0);
+  $('#cdCount').textContent = count ? '('+count+')' : '';
+  const itemsEl = $('#cdItems'), emptyEl = $('#cdEmpty');
+  if(!count){
+    itemsEl.innerHTML=''; emptyEl.style.display='flex'; $('#cdFoot').style.display='none';
+    $('#shipFill').style.width='0%';
+    return;
+  }
+  emptyEl.style.display='none'; $('#cdFoot').style.display='block';
+  itemsEl.innerHTML = items.map(([id,q])=>{
+    const p = PRODUCTS[id];
+    return `<div class="cd-item">
+      <span class="cd-thumb" style="border-color:${p.c};background:${p.c}1c"><i style="background:linear-gradient(90deg,${p.c} 0 50%,#f1e9dd 50% 100%)"></i></span>
+      <div class="cd-info"><b>${p.name}</b><small>${p.spec}</small>
+        <div class="cd-qty"><button data-act="dec" data-id="${id}" aria-label="Decrease">−</button><span>${q}</span><button data-act="inc" data-id="${id}" aria-label="Increase">+</button><button class="cd-rm" data-act="rm" data-id="${id}">Remove</button></div>
+      </div>
+      <b class="cd-price">${fmt(p.price*q)}</b>
+    </div>`;
+  }).join('');
+  const sub = items.reduce((a,[id,q])=>a+PRODUCTS[id].price*q,0);
+  const subscribed = $('#subToggle').checked;
+  const save = subscribed ? sub*.15 : 0, total = sub-save;
+  $('#cdSubtotal').textContent = fmt(sub);
+  $('#cdSaveRow').classList.toggle('on',subscribed);
+  $('#cdSave').textContent = '–'+fmt(save);
+  $('#cdTotal').textContent = fmt(total);
+  const pct = Math.min(sub/450*100,100);
+  $('#shipFill').style.width = pct+'%';
+  $('#shipLabel').innerHTML = sub>=450 ? '<b>🎉 Free delivery unlocked</b>' : 'Add <b>'+fmt(450-sub)+'</b> more for free delivery';
+}
+$('#subToggle').addEventListener('change',renderCart);
+$('#cdItems').addEventListener('click',e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  const {act,id} = b.dataset;
+  if(act==='inc') cart[id]++;
+  if(act==='dec'){ cart[id]--; if(cart[id]<=0) delete cart[id]; }
+  if(act==='rm') delete cart[id];
+  renderCart();
+});
+$$('[data-add]').forEach(b=>b.addEventListener('click',()=>{
+  const id = b.dataset.add;
+  cart[id] = (cart[id]||0)+1;
+  renderCart();
+  badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop');
+  toast('Added to your shelf ✓ — '+PRODUCTS[id].name);
+}));
+$('#checkoutBtn').addEventListener('click',()=>{
+  const n = Object.values(cart).reduce((a,b)=>a+b,0);
+  toast(n ? 'Demo checkout — connect your payments provider to go live.' : 'Your shelf is empty — add a bottle first.');
+});
+renderCart();
+/* ============ FAQ ============ */
+$$('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const open = item.classList.contains('open');
+    $$('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = 0; i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+    if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; q.setAttribute('aria-expanded','true'); }
+  });
+});
+/* ============ NEWSLETTER ============ */
+$('#nlForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v = $('#nlEmail').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ toast('Pop in a valid email and you\u2019re in.'); return; }
+  $('#nlForm').style.display='none';
+  $('#nlDone').style.display='flex';
+  toast('You\u2019re in — first dibs on Drop 002 ✓');
+});
+/* ============ MISC ============ */
+$('#year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
